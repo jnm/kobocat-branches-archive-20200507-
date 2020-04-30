@@ -129,6 +129,7 @@ class TestAbstractViewSet(TestCase):
         user.user_permissions.add(add_userprofile)
 
     def _create_user_profile(self, extra_post_data={}):
+        self.profile_data = dict(self.profile_data)
         self.profile_data.update(extra_post_data)
         user, created = User.objects.get_or_create(
             username=self.profile_data['username'],
